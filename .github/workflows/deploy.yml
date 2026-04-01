@@ -49,5 +49,5 @@ jobs:
          AWS_DEFAULT_REGION: "ap-south-1"
 
        run: | 
-        ansible-inventory --list
-        ansible-playbook play.yml
+        ansible-inventory  -i inventory/aws_ec2.yml --list
+        ansible-playbook -i inventory/aws_ec2.yml  play.yml

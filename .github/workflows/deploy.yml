@@ -29,7 +29,7 @@ jobs:
      - name: Install Dependencies and plugins
        run: |
          python -m pip install --upgrade pip
-         pip install boto3 botocore
+         pipx inject boto3 botocore
          ansible-galaxy collection install amazon.aws
          which python
          which ansible

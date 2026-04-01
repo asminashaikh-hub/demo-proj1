@@ -6,7 +6,7 @@ filters:
   instance-state-name: running
 
 keyed_groups:
- -  keys: tags.Name
+ -  key: tags.Name
     prefix: tag
     separator: "-"
 

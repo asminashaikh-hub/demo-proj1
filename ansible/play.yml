@@ -1,7 +1,7 @@
 ---
 
 - name : Play
-  hosts: tag-web
+  hosts: tag-Name-web
   become: yes
   roles:
     - demo

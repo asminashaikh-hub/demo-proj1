@@ -1,0 +1,29 @@
+---
+# tasks file for roles/demo
+#
+- name: Install Docker
+  ansible.builtin.apt:
+    name: docker.io
+    state: present
+    update_cache: yes
+
+
+- name: Start Docker Service
+  ansible.builtin.service:
+    name: docker
+    state: started
+    enabled: yes
+
+
+- name: Pull Image and Run container
+  community.docker.docker_image:
+    name: web-app
+    image: asmina001/web:latest
+    state: started 
+    pull: true
+    ports:
+      - "80:80"
+
+
+
+

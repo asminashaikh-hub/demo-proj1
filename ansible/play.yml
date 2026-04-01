@@ -1,0 +1,7 @@
+---
+
+- name : Play
+  hosts: web
+  become: yes
+  roles:
+    - demo

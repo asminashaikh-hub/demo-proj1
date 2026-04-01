@@ -16,7 +16,7 @@
 
 
 - name: Pull Image and Run container
-  community.docker.docker_image:
+  community.docker.docker_container:
     name: web-app
     image: asmina001/web:latest
     state: started 

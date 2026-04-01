@@ -2,13 +2,13 @@ plugin: amazon.aws.aws_ec2
 regions:
   - ap-south-1
 
-grouped_key:
- -  keys: tags.Name
- -  prefix: tag
- -  separator: _
-
 filters:
   instance-state-name: running
+
+keyed_groups:
+ -  keys: tags.Name
+    prefix: tag
+    separator: _
 
 hostnames:
   - public-ip-address 

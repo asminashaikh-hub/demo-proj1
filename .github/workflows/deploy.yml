@@ -26,6 +26,11 @@ jobs:
          push: true
          tags: ${{secrets.Docker_user}}/web:latest
 
+     - name: Install Dependencies and plugins
+       run: |
+         pip install boto3
+         ansible-galaxy collection install amazon.aws
+
      - name: SSH Copy
        working-directory: ansible
        run: |
@@ -34,4 +39,9 @@ jobs:
           
      - name: Play Ansible playbook
        working-directory: ansible
+       env:
+         AWS_ACCESS_KEY_ID: ${{secrets.AWS_ACCESS_KEY_ID}}
+         AWS_SECRET_ACCESS_KEY: ${{secrets.AWS_SECRET_ACCESS_KEY}}
+         AWS_DEFAULT_REGION: "ap-south-1"
+
        run: ansible-playbook play.yml
